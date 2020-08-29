@@ -1,9 +1,7 @@
-@import './base/base';
-@import './base/variables';
+@import "./base/base";
+@import "./base/variables";
 
-@import './mixins/mixins';
+@import "./base/typography";
+@import "./base/utilities";
 
-@import './base/typography';
-@import './base/utilities';
-
-@import './animations/animations';
+@import "./animations/animations";
