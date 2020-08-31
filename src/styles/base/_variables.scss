@@ -1,8 +1,14 @@
-// COLOR SCHEME
+// color scheme
 
-$color-white: #fff;
-$color-black: #000;
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+$color-grey: rgb(149, 165, 166);
+$color-grey-light: rgb(236, 240, 241);
+$color-grey-dark: rgb(127, 140, 141);
 
-// BOX-SHADOWS
+$color-primary-0: rgb(52, 152, 219);
+$color-primary-1: rgb(41, 128, 185);
+
+// box-shadows
 
 $box-shadow: 0rem 1rem 2rem rgba($color-black, 0.1);

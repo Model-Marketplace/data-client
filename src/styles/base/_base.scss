@@ -1,15 +1,21 @@
 html {
-    font-size: 62.5%;
-    box-sizing: border-box;
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 1.75rem;
-    line-height: 3rem;
+  // sizing
+  margin: 0;
+  padding: 0;
+
+  // fonts
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-family: "Roboto";
 }

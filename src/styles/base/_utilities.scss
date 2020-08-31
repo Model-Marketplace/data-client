@@ -1,0 +1,222 @@
+.marg {
+  &-c {
+    margin: 0 auto;
+  }
+
+  &-t {
+    &-xs {
+      margin-top: 1rem;
+    }
+
+    &-sm {
+      margin-top: 2rem;
+    }
+
+    &-m {
+      margin-top: 4rem;
+    }
+
+    &-ml {
+      margin-top: 6rem;
+    }
+
+    &-l {
+      margin-top: 10rem;
+    }
+  }
+
+  &-b {
+    &-xs {
+      margin-bottom: 1rem;
+    }
+
+    &-sm {
+      margin-bottom: 2rem;
+    }
+
+    &-m {
+      margin-bottom: 4rem;
+    }
+
+    &-ml {
+      margin-bottom: 6rem;
+    }
+
+    &-l {
+      margin-bottom: 10rem;
+    }
+  }
+
+  &-l {
+    &-xs {
+      margin-left: 1rem;
+    }
+
+    &-sm {
+      margin-left: 2rem;
+    }
+
+    &-m {
+      margin-left: 4rem;
+    }
+
+    &-ml {
+      margin-left: 6rem;
+    }
+
+    &-l {
+      margin-left: 10rem;
+    }
+  }
+
+  &-r {
+    &-xs {
+      margin-right: 1rem;
+    }
+
+    &-sm {
+      margin-right: 2rem;
+    }
+
+    &-m {
+      margin-right: 4rem;
+    }
+
+    &-ml {
+      margin-right: 6rem;
+    }
+
+    &-l {
+      margin-right: 10rem;
+    }
+  }
+}
+
+.layout {
+  &-position {
+    &--center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &-size {
+    &--full-height {
+      height: 100%;
+    }
+
+    &--full-width {
+      width: 100%;
+    }
+  }
+
+  &-col {
+    &-2 {
+      max-width: 23.23rem;
+    }
+
+    &-3 {
+      max-width: 34.84rem;
+    }
+
+    &-4 {
+      width: 46.45rem;
+    }
+
+    &-5 {
+      max-width: 58.06rem;
+    }
+
+    &-6 {
+      max-width: 70.37rem;
+    }
+
+    &-7 {
+      max-width: 81.28rem;
+    }
+
+    &-8 {
+      max-width: 92.89rem;
+    }
+  }
+
+  &-flex {
+    display: flex;
+
+    &--around {
+      justify-content: space-around;
+    }
+
+    &--between {
+      justify-content: space-between;
+    }
+
+    &--grow {
+      flex: 1;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+
+    &--top {
+      align-items: start;
+    }
+
+    &--bottom {
+      align-items: flex-end;
+    }
+
+    &--center {
+      align-items: center;
+    }
+  }
+}
+
+.wrapper-flex {
+  display: flex;
+
+  &--spaced {
+    justify-content: space-between;
+  }
+
+  &--around {
+    justify-content: space-around;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--top {
+    align-items: start;
+  }
+
+  &--bottom {
+    align-items: flex-end;
+  }
+
+  &--center {
+    align-items: center;
+  }
+
+  &--flex1 {
+    flex: 1;
+  }
+}
+
+.text-align {
+  &-l {
+    text-align: left;
+  }
+
+  &-r {
+    text-align: right;
+  }
+
+  &-c {
+    text-align: center;
+  }
+}
