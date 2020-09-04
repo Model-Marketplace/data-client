@@ -5,29 +5,29 @@ const create_repo = (payload, callback) => {
     .post('http://localhost:3000/repos/create', payload, {
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
     })
-    .then(res => {
+    .then((res) => {
       callback(res);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err.response);
     });
 };
 
-const get_all_repos = callback => {
+const get_all_repos = (callback) => {
   axios
     .get('http://localhost:3000/repos', {
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
     })
-    .then(res => {
+    .then((res) => {
       callback(res);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err.response);
     });
 };

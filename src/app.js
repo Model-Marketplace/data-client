@@ -7,6 +7,7 @@ import RegisterPage from './components/pages/RegisterPage';
 import LoginPage from './components/pages/LoginPage';
 import HomePage from './components/pages/HomePage';
 import CreatePage from './components/pages/CreatePage';
+import ProfilePage from './components/pages/ProfilePage';
 
 import CheckAuth from './components/helpers/CheckAuth';
 
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Route path="/login" component={LoginPage} />
       <Route path="/home" component={CheckAuth(HomePage)} />
       <Route path="/create" component={CheckAuth(CreatePage)} />
+      <Route path="/profile/:username" component={CheckAuth(ProfilePage)} />
     </Switch>
   </Router>,
   document.getElementById('app')

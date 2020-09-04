@@ -55,7 +55,7 @@ export class RegisterPage extends Component {
                 value={lastName}
                 placeholder="Last name"
                 onChange={e => this.onChange(e)}
-                autoComplete="off"
+                autoComplete="doff"
                 className="input-text layout-size--full-width marg-t-xs"
               />
               <input

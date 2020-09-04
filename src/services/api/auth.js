@@ -5,14 +5,13 @@ const check_auth = (callback, callback2) => {
     .get('http://localhost:3000/users', {
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
     })
-    .then(res => {
-      console.log(res);
+    .then((res) => {
       callback();
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err.response);
       localStorage.removeItem('token');
       callback2();
@@ -22,13 +21,13 @@ const check_auth = (callback, callback2) => {
 const register = (payload, callback) => {
   axios
     .post('http://localhost:3000/users/create', payload)
-    .then(res => {
+    .then((res) => {
       const { token, username } = res.data;
       localStorage.setItem('token', token);
       localStorage.setItem('username', username);
       callback();
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err.response);
     });
 };
@@ -36,25 +35,25 @@ const register = (payload, callback) => {
 const login = (payload, callback) => {
   axios
     .post('http://localhost:3000/users/login', payload)
-    .then(res => {
+    .then((res) => {
       const { token, username } = res.data;
       localStorage.setItem('token', token);
       localStorage.setItem('username', username.replace(/@.*$/, ''));
       callback();
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err.response);
     });
 };
 
-const logout = callback => {
+const logout = (callback) => {
   axios
     .post('http://localhost:3000/users/logout')
-    .then(res => {
+    .then((res) => {
       localStorage.removeItem('token');
       callback();
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err.response);
     });
 };

@@ -1,9 +1,26 @@
 .nav-bar {
+  position: relative;
   background-color: $color-white;
   padding: 1rem 2rem;
   border-bottom: 1px solid $color-grey;
 
   &-search {
-    width: 75rem;
+    width: 70.37rem;
+    min-width: 23.23rem;
+  }
+
+  &-profile {
+    position: absolute;
+    right: 2rem;
+    top: 6rem;
+    width: 25rem;
+  }
+
+  &-results {
+    position: absolute;
+    top: 6rem;
+    left: 17rem;
+    width: 70.37rem;
+    min-width: 23.23rem;
   }
 }

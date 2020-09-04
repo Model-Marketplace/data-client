@@ -1,7 +1,9 @@
 .link {
+  color: $color-black;
   text-decoration: none;
+  cursor: pointer;
 
   &:visited {
-    color: transparent;
+    color: $color-black;
   }
 }
