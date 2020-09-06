@@ -19,13 +19,13 @@ export default class ProfilePage extends Component {
       <div className="page">
         <NavigationBar />
         <section className="marg-t-sm">
-          <div className="element-box layout-col-6 marg-c">
+          <div className="el-box layout-col-6 marg-c">
             <img
               src="https://www.redditstatic.com/avatars/avatar_default_18_0079D3.png"
-              className="element-image element-image--l"
+              className="el-image el-image--l"
             />
           </div>
-          <div className="element-box layout-col-6 marg-c marg-t-sm">
+          <div className="el-box layout-col-6 marg-c marg-t-sm">
             <h3>Repositories</h3>
           </div>
         </section>

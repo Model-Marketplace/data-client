@@ -1,5 +1,10 @@
 .page {
   position: relative;
-  height: 100vh;
   background-color: $color-grey-light;
+
+  &-vh {
+    height: 100vh;
+    position: relative;
+    background-color: $color-grey-light;
+  }
 }

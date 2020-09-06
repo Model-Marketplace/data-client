@@ -5,9 +5,10 @@
   background-color: $color-grey-light;
   border: 1px solid $color-grey;
   font-size: 1.5rem;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 300;
   outline: none;
+  resize: none;
   transition: all 0.2s;
 
   &:focus {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { debounce } from 'lodash';
+import debounce from 'lodash.debounce';
 
 import { search } from '../../services/api/search';
 import { logout } from '../../services/api/auth';
@@ -11,6 +11,7 @@ export class NavigationBar extends Component {
     super(props);
 
     this.wrapperRef = React.createRef();
+
     this.onChange = this.onChange.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.debouncedSearch = debounce(search, 500);
@@ -65,15 +66,13 @@ export class NavigationBar extends Component {
       profileIsOpen,
     } = this.state;
     return (
-      <div
-        ref={this.wrapperRef}
-        className="nav-bar layout-flex layout-flex--between layout-flex--center"
-      >
+      <div className="nav-bar layout-flex layout-flex--between layout-flex--center">
         <div className="layout-flex layout-flex--center">
           <Link to="/home" className="link">
             <h3 className="marg-r-m">Data Project</h3>
           </Link>
           <input
+            ref={this.wrapperRef}
             type="text"
             name="searchTerm"
             value={searchTerm}
@@ -102,11 +101,11 @@ export class NavigationBar extends Component {
                 profileIsOpen: !prevState.profileIsOpen,
               }))
             }
-            className="element-image element-image--m marg-r-sm"
+            className="el-image el-image--s marg-r-sm"
           />
         </div>
         {profileIsOpen && (
-          <div className="nav-bar-profile element-box">
+          <div className="nav-bar-profile el-box pad-c-s" ref={this.wrapperRef}>
             <p>{username.replace(/@.*$/, '')}</p>
             <hr className="marg-t-sm" />
             <Link to={`/profile/${username}`} className="link">
@@ -124,28 +123,36 @@ export class NavigationBar extends Component {
           </div>
         )}
         {searchIsOpen && (
-          <div className="nav-bar-results element-box">
+          <div className="nav-bar-results el-box" ref={this.wrapperRef}>
             {searchResults.length > 0 ? (
               <div>
                 {searchResults.map((result) => (
                   <div key={result._id}>
-                    <div className="layout-flex marg-b-sm">
-                      <img
-                        src="https://www.redditstatic.com/avatars/avatar_default_19_46A508.png"
-                        className="element-image element-image--m marg-r-sm"
-                      />
-                      <div>
-                        <h5>{result.name}</h5>
-                        <p>{result.description}</p>
-                      </div>
+                    <div className="el--clickable pad-c-s">
+                      <Link to={`/repo/${result._id}`} className="link">
+                        <div className="layout-flex">
+                          <img
+                            src="https://www.redditstatic.com/avatars/avatar_default_19_46A508.png"
+                            className="el-image el-image--s marg-r-sm"
+                          />
+                          <div>
+                            <h5>{result.name}</h5>
+                            <p>{result.description}</p>
+                          </div>
+                        </div>
+                      </Link>
                     </div>
-                    <hr />
+                    <div className="pad-l-s pad-r-s">
+                      <hr className="hr" />
+                    </div>
                   </div>
                 ))}
-                <h5 className="marg-t-sm">View more results</h5>
+                <div className="pad-c-s">See more results</div>
               </div>
             ) : (
-              <h5>No results found</h5>
+              <div className="pad-c-s">
+                <h5>No results found</h5>
+              </div>
             )}
           </div>
         )}

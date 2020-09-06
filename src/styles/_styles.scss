@@ -1,21 +1,22 @@
-@import "./base/base";
-@import "./base/variables";
+@import './base/base';
+@import './base/variables';
 
-@import "./base/typography";
-@import "./base/utilities";
+@import './base/typography';
+@import './base/utilities';
 
-@import "./animations/animations";
+@import './animations/animations';
 
-@import "./components/generic/input";
-@import "./components/generic/textarea";
-@import "./components/generic/button";
-@import "./components/generic/link";
-@import "./components/generic/section";
-@import "./components/generic/element";
-@import "./components/generic/page";
-@import "./components/generic/hr";
-@import "./components/generic/select";
+@import './components/generic/input';
+@import './components/generic/textarea';
+@import './components/generic/button';
+@import './components/generic/link';
+@import './components/generic/section';
+@import './components/generic/element';
+@import './components/generic/page';
+@import './components/generic/hr';
+@import './components/generic/select';
 
-@import "./components/menus/nav-bar";
+@import './components/menus/nav-bar';
+@import './components/menus/footer';
 
-@import "./components/widgets/sortfilter";
+@import './components/widgets/sortfilter';

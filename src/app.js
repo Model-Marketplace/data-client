@@ -8,6 +8,7 @@ import LoginPage from './components/pages/LoginPage';
 import HomePage from './components/pages/HomePage';
 import CreatePage from './components/pages/CreatePage';
 import ProfilePage from './components/pages/ProfilePage';
+import RepoPage from './components/pages/RepoPage';
 
 import CheckAuth from './components/helpers/CheckAuth';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Route path="/home" component={CheckAuth(HomePage)} />
       <Route path="/create" component={CheckAuth(CreatePage)} />
       <Route path="/profile/:username" component={CheckAuth(ProfilePage)} />
+      <Route path="/repo/:repoId" component={CheckAuth(RepoPage)} />
     </Switch>
   </Router>,
   document.getElementById('app')

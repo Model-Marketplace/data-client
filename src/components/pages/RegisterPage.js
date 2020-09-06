@@ -13,13 +13,13 @@ export class RegisterPage extends Component {
       username: '',
       password: '',
       firstName: '',
-      lastName: ''
+      lastName: '',
     };
   }
 
   onChange(e) {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   }
 
@@ -35,8 +35,8 @@ export class RegisterPage extends Component {
   render() {
     const { username, password, firstName, lastName } = this.state;
     return (
-      <div className="page">
-        <div className="element-box layout-col-4 layout-position--center">
+      <div className="page-vh">
+        <div className="el-box layout-col-4 layout-position--center">
           <div className="layout-col-3 marg-c marg-t-sm">
             <form onSubmit={this.onSubmit}>
               <h3 className="text-align-c">Data Project</h3>
@@ -45,7 +45,7 @@ export class RegisterPage extends Component {
                 name="firstName"
                 value={firstName}
                 placeholder="First name"
-                onChange={e => this.onChange(e)}
+                onChange={(e) => this.onChange(e)}
                 autoComplete="off"
                 className="input-text layout-size--full-width marg-t-m"
               />
@@ -54,7 +54,7 @@ export class RegisterPage extends Component {
                 name="lastName"
                 value={lastName}
                 placeholder="Last name"
-                onChange={e => this.onChange(e)}
+                onChange={(e) => this.onChange(e)}
                 autoComplete="doff"
                 className="input-text layout-size--full-width marg-t-xs"
               />
@@ -63,7 +63,7 @@ export class RegisterPage extends Component {
                 name="username"
                 value={username}
                 placeholder="Email address"
-                onChange={e => this.onChange(e)}
+                onChange={(e) => this.onChange(e)}
                 autoComplete="off"
                 className="input-text layout-size--full-width marg-t-xs"
               />
@@ -72,7 +72,7 @@ export class RegisterPage extends Component {
                 name="password"
                 value={password}
                 placeholder="New password"
-                onChange={e => this.onChange(e)}
+                onChange={(e) => this.onChange(e)}
                 autoComplete="off"
                 className="input-text layout-size--full-width marg-t-xs"
               />

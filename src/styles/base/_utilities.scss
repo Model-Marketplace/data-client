@@ -92,8 +92,32 @@
   }
 }
 
+.pad {
+  &-c {
+    &-s {
+      padding: 2rem;
+    }
+  }
+
+  &-l {
+    &-s {
+      padding-left: 2rem;
+    }
+  }
+
+  &-r {
+    &-s {
+      padding-right: 2rem;
+    }
+  }
+}
+
 .layout {
   &-position {
+    &--relative {
+      position: relative;
+    }
+
     &--center {
       position: absolute;
       top: 50%;
@@ -187,4 +211,34 @@
   &-c {
     text-align: center;
   }
+}
+
+.font {
+  &-size {
+    &-s {
+      font-size: 2rem;
+    }
+
+    &-m {
+      font-size: 4rem;
+    }
+
+    &-l {
+      font-size: 6rem;
+    }
+  }
+}
+
+.icon {
+  &-color {
+    &-standard {
+      color: $color-grey-dark;
+    }
+  }
+}
+
+.x {
+  height: 100%;
+  width: 100%;
+  // display: none;
 }

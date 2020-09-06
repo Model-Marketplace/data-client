@@ -16,9 +16,9 @@ const create_repo = (payload, callback) => {
     });
 };
 
-const get_all_repos = (callback) => {
+const get_all_repos = (payload, callback) => {
   axios
-    .get('http://localhost:3000/repos', {
+    .post('http://localhost:3000/repos', payload, {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -32,4 +32,20 @@ const get_all_repos = (callback) => {
     });
 };
 
-export { create_repo, get_all_repos };
+const get_repo = (payload, callback) => {
+  axios
+    .get(`http://localhost:3000/repos/${payload}`, {
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
+};
+
+export { create_repo, get_all_repos, get_repo };

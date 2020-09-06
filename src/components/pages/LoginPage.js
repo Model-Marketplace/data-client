@@ -12,13 +12,13 @@ export class LoginPage extends Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
     };
   }
 
   onChange(e) {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   }
 
@@ -34,8 +34,8 @@ export class LoginPage extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div className="page">
-        <div className="element-box layout-col-4 layout-position--center">
+      <div className="page-vh">
+        <div className="el-box layout-col-4 layout-position--center">
           <div className="layout-col-3 marg-c marg-t-sm">
             <form onSubmit={this.onSubmit}>
               <h3 className="text-align-c">Data Project</h3>
@@ -44,7 +44,7 @@ export class LoginPage extends Component {
                 name="username"
                 value={username}
                 placeholder="Email address"
-                onChange={e => this.onChange(e)}
+                onChange={(e) => this.onChange(e)}
                 className="input-text layout-size--full-width marg-t-m"
               />
               <input
@@ -52,7 +52,7 @@ export class LoginPage extends Component {
                 name="password"
                 value={password}
                 placeholder="Password"
-                onChange={e => this.onChange(e)}
+                onChange={(e) => this.onChange(e)}
                 className="input-text layout-size--full-width marg-t-xs"
               />
               <button className="button-shaded layout-size--full-width marg-t-sm">

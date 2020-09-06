@@ -31,7 +31,7 @@ export default class SortFilter extends Component {
   render() {
     const { options } = this.state;
     return (
-      <div className="element-box layout-flex layout-flex--between layout-flex--center marg-t-sm">
+      <div className="el-box pad-c-s layout-flex layout-flex--between layout-flex--center marg-t-sm">
         <div className="layout-flex layout-flex--between layout-flex--center">
           {options.map((option) => (
             <div
@@ -40,7 +40,7 @@ export default class SortFilter extends Component {
               className="layout-flex layout-flex--between layout-flex--center marg-r-sm sortfilter-group"
               style={this.handleSelected(option.name)}
             >
-              <i className={`${option.icon} marg-r-xs`}></i>
+              {/* <i className={`${option.icon} marg-r-xs`}></i> */}
               <h5>{option.value}</h5>
             </div>
           ))}
