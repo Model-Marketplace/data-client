@@ -11,7 +11,7 @@ export class LoginPage extends Component {
     this.onChange = this.onChange.bind(this);
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
     };
   }
@@ -25,14 +25,14 @@ export class LoginPage extends Component {
   onSubmit(e) {
     e.preventDefault();
     login(this.state, () => {
-      this.setState({ username: '', password: '' }, () =>
+      this.setState({ email: '', password: '' }, () =>
         this.props.history.push('/home')
       );
     });
   }
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     return (
       <div className="page-vh">
         <div className="el-box layout-col-4 layout-position--center">
@@ -41,8 +41,8 @@ export class LoginPage extends Component {
               <h3 className="text-align-c">Data Project</h3>
               <input
                 type="email"
-                name="username"
-                value={username}
+                name="email"
+                value={email}
                 placeholder="Email address"
                 onChange={(e) => this.onChange(e)}
                 className="input-text layout-size--full-width marg-t-m"

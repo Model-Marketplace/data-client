@@ -163,7 +163,7 @@ export default class CreatePage extends Component {
             </button>
           </form>
         </section>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

@@ -10,7 +10,7 @@ export class RegisterPage extends Component {
     this.onChange = this.onChange.bind(this);
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
       firstName: '',
       lastName: '',
@@ -26,14 +26,14 @@ export class RegisterPage extends Component {
   onSubmit(e) {
     e.preventDefault();
     register(this.state, () => {
-      this.setState({ username: '', password: '' }, () =>
+      this.setState({ email: '', password: '' }, () =>
         this.props.history.push('/home')
       );
     });
   }
 
   render() {
-    const { username, password, firstName, lastName } = this.state;
+    const { email, password, firstName, lastName } = this.state;
     return (
       <div className="page-vh">
         <div className="el-box layout-col-4 layout-position--center">
@@ -60,8 +60,8 @@ export class RegisterPage extends Component {
               />
               <input
                 type="email"
-                name="username"
-                value={username}
+                name="email"
+                value={email}
                 placeholder="Email address"
                 onChange={(e) => this.onChange(e)}
                 autoComplete="off"

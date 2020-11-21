@@ -8,8 +8,8 @@ export default class SortFilter extends Component {
 
     this.state = {
       options: [
-        { name: 'recommended', value: 'Recommended', icon: 'fas fa-rocket' },
-        { name: 'popular', value: 'Most Popular', icon: 'fab fa-hotjar' },
+        { name: 'recommended', value: 'Recommended' },
+        { name: 'popular', value: 'Most Popular' },
       ],
       selected: 'recommended',
     };
@@ -31,22 +31,26 @@ export default class SortFilter extends Component {
   render() {
     const { options } = this.state;
     return (
-      <div className="el-box pad-c-s layout-flex layout-flex--between layout-flex--center marg-t-sm">
-        <div className="layout-flex layout-flex--between layout-flex--center">
-          {options.map((option) => (
-            <div
-              key={option.name}
-              onClick={() => this.setState({ selected: option.name })}
-              className="layout-flex layout-flex--between layout-flex--center marg-r-sm sortfilter-group"
-              style={this.handleSelected(option.name)}
-            >
-              {/* <i className={`${option.icon} marg-r-xs`}></i> */}
-              <h5>{option.value}</h5>
-            </div>
-          ))}
-        </div>
-        <div className="sortfilter-group">
-          <h5>Today</h5>
+      <div className="el-box pad-c-s marg-t-sm">
+        <h3 className="marg-b-sm">Public Repositories</h3>
+        <hr className="hr" />
+
+        <div className="layout-flex layout-flex--between layout-flex--center marg-t-sm">
+          <div className="layout-flex layout-flex--between layout-flex--center">
+            {options.map((option) => (
+              <div
+                key={option.name}
+                onClick={() => this.setState({ selected: option.name })}
+                className="layout-flex layout-flex--between layout-flex--center marg-r-sm sortfilter-group"
+                style={this.handleSelected(option.name)}
+              >
+                <h5>{option.value}</h5>
+              </div>
+            ))}
+          </div>
+          <div className="sortfilter-group">
+            <h5>Today</h5>
+          </div>
         </div>
       </div>
     );
