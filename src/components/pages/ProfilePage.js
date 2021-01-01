@@ -63,9 +63,9 @@ export default class ProfilePage extends Component {
           ...prevState.user,
           amFollowing: !prevState.user.amFollowing,
           followersCount:
-            action === 'unfollow'
-              ? prevState.followersCount - 1
-              : prevState.followersCount + 1,
+            action == 'unfollow'
+              ? prevState.user.followersCount - 1
+              : prevState.user.followersCount + 1,
         },
       }));
     });
