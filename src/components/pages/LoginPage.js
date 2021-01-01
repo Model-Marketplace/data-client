@@ -38,7 +38,7 @@ export class LoginPage extends Component {
         <div className="el-box layout-col-4 layout-position--center">
           <div className="layout-col-3 marg-c marg-t-sm">
             <form onSubmit={this.onSubmit}>
-              <h3 className="text-align-c">Data Project</h3>
+              <h3 className="text-align-c">Classify</h3>
               <input
                 type="email"
                 name="email"

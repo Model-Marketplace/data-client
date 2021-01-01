@@ -89,9 +89,7 @@ export class HomePage extends Component {
                 loadMore={this.loadItems}
                 hasMore={hasMore}
               >
-                {repos.map((repo) => (
-                  <Repo repo={repo} />
-                ))}
+                {repos.map((repo) => <Repo repo={repo} key={repo._id}  /> )}
               </InfiniteScroll>
             </div>
           )}

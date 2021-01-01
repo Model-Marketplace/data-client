@@ -77,8 +77,8 @@ export default class ProfilePage extends Component {
       <div className="page-vh">
         <NavigationBar />
         {user && (
-          <section className="marg-t-sm">
-            <div className="el-box layout-flex pad-c-s layout-col-6 marg-c">
+          <section className="layout-col-6 marg-c marg-t-sm">
+            <div className="el-box layout-flex pad-c-s">
               <div className="marg-r-sm">
                 <img
                   src="https://www.redditstatic.com/avatars/avatar_default_18_0079D3.png"
@@ -102,10 +102,10 @@ export default class ProfilePage extends Component {
                 )}`}</p>
               </div>
             </div>
-            <div className="layout-col-6 marg-c marg-t-sm">
+            <div className="marg-t-sm">
               <SortFilter />
               {user.repos.map((repo) => (
-                <Repo repo={repo} />
+                <Repo repo={repo} key={repo._id} />
               ))}
             </div>
           </section>
