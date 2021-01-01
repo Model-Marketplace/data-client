@@ -112,8 +112,9 @@ export class NavigationBar extends Component {
               <p className="marg-t-sm">Your profile</p>
             </Link>
             <p className="marg-t-xs">Your repositories</p>
+            <p className="marg-t-xs">Your notifications</p>
             <hr className="marg-t-sm" />
-            <p className="marg-t-sm">Settings</p>
+	    <p className="marg-t-sm">Settings</p>
             <p
               onClick={() => logout(() => this.props.history.push('/login'))}
               className="marg-t-xs"

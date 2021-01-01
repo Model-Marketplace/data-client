@@ -105,7 +105,9 @@ export default class ProfilePage extends Component {
             <div className="marg-t-sm">
               <SortFilter />
               {user.repos.map((repo) => (
-                <Repo repo={repo} key={repo._id} />
+                <div key={repo._id} className="el-box pad-c-s marg-t-sm">
+                    <Repo repo={repo} />
+                </div>
               ))}
             </div>
           </section>

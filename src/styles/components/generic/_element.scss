@@ -5,6 +5,12 @@
     background-color: $color-white;
   }
 
+  &-box-grey {
+    border-radius: 0.5rem;
+    border: 1px solid $color-grey-light;
+    background-color: $color-grey-light;
+  }
+
   &-image {
     display: block;
     border-radius: 0.5rem;

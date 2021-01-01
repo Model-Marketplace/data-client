@@ -9,19 +9,21 @@ import HomePage from './components/pages/HomePage';
 import CreatePage from './components/pages/CreatePage';
 import ProfilePage from './components/pages/ProfilePage';
 import RepoPage from './components/pages/RepoPage';
+import NotificationsPage from './components/pages/NotificationsPage';
 
 import CheckAuth from './components/helpers/CheckAuth';
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <Route path="/register" component={RegisterPage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/home" component={CheckAuth(HomePage)} />
-      <Route path="/create" component={CheckAuth(CreatePage)} />
-      <Route path="/profile/:username" component={CheckAuth(ProfilePage)} />
-      <Route path="/repo/:repoId" component={CheckAuth(RepoPage)} />
-    </Switch>
-  </Router>,
-  document.getElementById('app')
+	<Router>
+		<Switch>
+			<Route path="/register" component={RegisterPage} />
+			<Route path="/login" component={LoginPage} />
+			<Route path="/home" component={CheckAuth(HomePage)} />
+			<Route path="/create" component={CheckAuth(CreatePage)} />
+			<Route path="/profile/:username" component={CheckAuth(ProfilePage)} />
+			<Route path="/repo/:repoId" component={CheckAuth(RepoPage)} />
+			<Route path="/notifications" component={NotificationsPage} />
+		</Switch>
+	</Router>,
+	document.getElementById('app')
 );

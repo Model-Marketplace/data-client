@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import BarLoader from 'react-spinners/BarLoader';
 import InfiniteScroll from 'react-infinite-scroller';
-import moment from 'moment';
 
 import NavigationBar from '../menus/NavigationBar';
 import SortFilter from '../widgets/SortFilter';
@@ -47,6 +46,8 @@ export class HomePage extends Component {
 
   loadItems(page) {
     const { repos } = this.state;
+    console.log('List of repos: ');
+    console.log(repos)
     if (repos.length > 0) {
       get_all_repos({ skip: repos.length }, (res) => {
         if (res.data.repos.length == 0) {
@@ -89,7 +90,11 @@ export class HomePage extends Component {
                 loadMore={this.loadItems}
                 hasMore={hasMore}
               >
-                {repos.map((repo) => <Repo repo={repo} key={repo._id}  /> )}
+                {repos.map((repo) => 
+                <div key={repo._id} className="el-box pad-c-s marg-t-sm">
+                  <Repo repo={repo} /> 
+                </div>
+                )}
               </InfiniteScroll>
             </div>
           )}

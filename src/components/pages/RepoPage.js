@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import NavigationBar from '../menus/NavigationBar';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
+
+import Repo from '../blocks/Repo';
 
 import { get_repo } from '../../services/api/repo';
 
@@ -16,26 +20,69 @@ export default class RepoPage extends Component {
     const { repoId } = this.props.match.params;
 
     get_repo(repoId, (res) => {
-      console.log('Inside get_repo callback');
-      console.log(res.data);
       this.setState({ ...this.state, repo: res.data });
     });
   }
 
   render() {
     const { repo } = this.state;
-    console.log('sdfsd');
     return (
       <div>
         <NavigationBar />
-        <div>Hello there</div>
-
-        {repo && (
-          <div>
-            <h5>{repo.name}</h5>
-            <h5>{repo.description}</h5>
-          </div>
-        )}
+        <section>
+          {repo && (
+            <div className="layout-col-6 marg-c">
+              <div className="el-box pad-c-s marg-t-sm">
+                <div className="marg-b-sm">
+                  <Repo repo={repo} />
+                </div>
+                <hr className="hr" />
+                <h5 className="marg-t-sm">API Endpoint — Upload Data</h5>
+                <p className="marg-t-xs">
+                  To contribute data to this repository, you must upload data
+                  to the endpoint indicated in the gray box; data must conform 
+                  to community guidelines and be in accordance with the 
+                  format specified by the repository owners.
+                </p>
+                <div className="el-box-grey pad-c-s marg-t-sm">
+                  <span className="span-code">
+                    {`POST: localhost:3000/upload/${repo._id}`}
+                  </span>
+                </div>
+                <h5 className="marg-t-sm marg-b-sm">Owners</h5>
+                <div>
+                  {repo.owners.map((owner) => (
+                      <Link
+                        to={`/profile/${owner.username}`}
+                        className="link"
+                        key={owner._id}
+                      >
+                        <img
+                          src="https://www.redditstatic.com/avatars/avatar_default_18_0079D3.png"
+                          className="el-image el-image--s marg-r-sm"
+                        />
+                      </Link>
+                  ))}
+                </div>
+                <h5 className="marg-t-sm marg-b-sm">Contributors</h5>
+                <div>
+                  {repo.contributors.map((contributor) => (
+                      <Link
+                        to={`/profile/${contributor.username}`}
+                        className="link"
+                        key={contributor._id}
+                      >
+                        <img
+                          src="https://www.redditstatic.com/avatars/avatar_default_18_0079D3.png"
+                          className="el-image el-image--s marg-r-sm"
+                        />
+                      </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </section>
       </div>
     );
   }
