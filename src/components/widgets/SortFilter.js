@@ -34,7 +34,6 @@ export default class SortFilter extends Component {
       <div className="el-box pad-c-s marg-t-sm">
         <h3 className="marg-b-sm">Public Repositories</h3>
         <hr className="hr" />
-
         <div className="layout-flex layout-flex--between layout-flex--center marg-t-sm">
           <div className="layout-flex layout-flex--between layout-flex--center">
             {options.map((option) => (

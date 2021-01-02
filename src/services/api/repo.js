@@ -48,4 +48,20 @@ const get_repo = (payload, callback) => {
     });
 };
 
-export { create_repo, get_all_repos, get_repo };
+const update_repo = (id, payload, callback) => {
+  axios
+    .put(`http://localhost:3000/repos/${id}`, payload, {
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
+};
+
+export { create_repo, get_all_repos, get_repo, update_repo };

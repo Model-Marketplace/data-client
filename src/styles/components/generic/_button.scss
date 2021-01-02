@@ -14,7 +14,27 @@
 
   &:hover {
     border: 1px solid $color-primary-1;
-    color: $color-primary-0;
+    color: $color-primary-1;
+  }
+}
+
+.button-warning {
+  display: inline-block;
+  height: 5rem;
+  padding: 1.25rem 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid $color-red-0;
+  color: $color-red-0;
+  background-color: $color-white;
+  font-weight: 400;
+  font-size: 1.5rem;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.1s;
+
+  &:hover {
+    border: 1px solid $color-red-0;
+    color: $color-red-0;
   }
 }
 

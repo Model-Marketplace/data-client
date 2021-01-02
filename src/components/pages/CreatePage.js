@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NavigationBar from '../menus/NavigationBar';
-import Footer from '../menus/Footer';
 
 import { create_repo } from '../../services/api/repo';
 
@@ -9,7 +8,6 @@ export default class CreatePage extends Component {
     super(props);
 
     this.onChange = this.onChange.bind(this);
-    this.handleFileUpload = this.handleFileUpload.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -27,26 +25,6 @@ export default class CreatePage extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-  }
-
-  handleFileUpload(e) {
-    console.log('handleFileUpload()');
-    console.log(e.target.files[0]);
-    this.setState(
-      {
-        ...this.state,
-        image: e.target.files[0],
-        url: URL.createObjectURL(e.target.files[0]),
-      },
-      () => {
-        const { image } = this.state;
-        const data = new FormData();
-        data.append('repoImage', image);
-        console.log('the data: ');
-        console.log(data);
-        // Upload avatar
-      }
-    );
   }
 
   onSubmit(e) {
@@ -68,50 +46,33 @@ export default class CreatePage extends Component {
             onSubmit={this.onSubmit}
             className="layout-col-6 marg-c el-box pad-c-s"
           >
-            <h3>Create Repository</h3>
+            <h4>Create Repository</h4>
             <p className="marg-t-xs">
               A repository contains all relevant data entries, including the
               revision history.
             </p>
             <hr className="marg-t-sm" />
-            <h3 className="marg-t-sm">Background</h3>
+            <h4 className="marg-t-sm">Background</h4>
             <p className="marg-t-xs">
               Enter basic information to describe the repository contents.
             </p>
-            <div className="layout-flex marg-t-sm">
-              <div className="el-box el-image--l layout-position--relative el--clickable marg-r-sm">
-                {image ? (
-                  <img src={url} className="el-image el-image--l marg-r-sm" />
-                ) : (
-                  <i className="fas fa-upload layout-position--center icon-color-standard font-size-m" />
-                )}
-                <input
-                  type="file"
-                  accept="image/png, image/jpeg"
-                  id="repo-photo-upload"
-                  onChange={this.handleFileUpload}
-                  className="x"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  value={name}
-                  placeholder="Name"
-                  autoComplete="off"
-                  className="input-text"
-                  onChange={(e) => this.onChange(e)}
-                />
-                <select className="select marg-t-xs">
-                  <option value="" disabled selected="selected">
-                    Type
-                  </option>
-                  <option value="image">Image</option>
-                  <option value="text">Text</option>
-                </select>
-              </div>
-            </div>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              placeholder="Name"
+              autoComplete="off"
+              className="input-text marg-t-sm"
+              onChange={(e) => this.onChange(e)}
+            />
+            <select className="select marg-t-xs">
+              <option value="" disabled selected="selected">
+                Type
+              </option>
+              <option value="image">Image</option>
+              <option value="text">Text</option>
+              <option value="image">Custom</option>
+            </select>
             <textarea
               type="text"
               name="description"
@@ -121,7 +82,7 @@ export default class CreatePage extends Component {
               onChange={(e) => this.onChange(e)}
             />
             <hr className="marg-t-sm" />
-            <h3 className="marg-t-sm">Accessibility</h3>
+            <h4 className="marg-t-sm">Accessibility</h4>
             <p className="marg-t-xs">
               Define who gets to access this repository.
             </p>
@@ -137,7 +98,7 @@ export default class CreatePage extends Component {
                 className="el-image el-image--s marg-r-sm"
               />
               <div>
-                <h5>Public</h5>
+                <h4>Public</h4>
                 <p>Anyone on the internet can see this repository</p>
               </div>
             </div>
