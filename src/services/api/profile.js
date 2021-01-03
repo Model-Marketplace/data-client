@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const get_profile = (payload, callback) => {
   axios
-    .get(`http://localhost:3000/profiles/${payload}`, {
+    .get(`http://localhost:3000/api/profiles/${payload}`, {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -19,7 +19,7 @@ const get_profile = (payload, callback) => {
 const profile_action = (payload, callback) => {
   const { id } = payload;
   axios
-    .post(`http://localhost:3000/profiles/${id}/action`, payload, {
+    .post(`http://localhost:3000/api/profiles/${id}/action`, payload, {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,

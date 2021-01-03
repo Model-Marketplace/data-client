@@ -9,7 +9,7 @@ import HomePage from './components/pages/HomePage';
 import CreatePage from './components/pages/CreatePage';
 import ProfilePage from './components/pages/ProfilePage';
 import RepoPage from './components/pages/RepoPage';
-import NotificationsPage from './components/pages/NotificationsPage';
+import InboxPage from './components/pages/InboxPage';
 
 import CheckAuth from './components/helpers/CheckAuth';
 
@@ -22,7 +22,7 @@ ReactDOM.render(
 			<Route path="/create" component={CheckAuth(CreatePage)} />
 			<Route path="/profile/:username" component={CheckAuth(ProfilePage)} />
 			<Route path="/repo/:repoId" component={CheckAuth(RepoPage)} />
-			<Route path="/notifications" component={NotificationsPage} />
+			<Route path="/inbox" component={InboxPage} />
 		</Switch>
 	</Router>,
 	document.getElementById('app')

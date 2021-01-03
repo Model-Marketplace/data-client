@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const check_auth = (callback, callback2) => {
   axios
-    .get('http://localhost:3000/users', {
+    .get('http://localhost:3000/api/users', {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -20,7 +20,7 @@ const check_auth = (callback, callback2) => {
 
 const register = (payload, callback) => {
   axios
-    .post('http://localhost:3000/users/create', payload)
+    .post('http://localhost:3000/api/users/create', payload)
     .then((res) => {
       const { token, username } = res.data;
       localStorage.setItem('token', token);
@@ -34,7 +34,7 @@ const register = (payload, callback) => {
 
 const login = (payload, callback) => {
   axios
-    .post('http://localhost:3000/users/login', payload)
+    .post('http://localhost:3000/api/users/login', payload)
     .then((res) => {
       const { token, username } = res.data;
       localStorage.setItem('token', token);
@@ -48,7 +48,7 @@ const login = (payload, callback) => {
 
 const logout = (callback) => {
   axios
-    .post('http://localhost:3000/users/logout')
+    .post('http://localhost:3000/api/users/logout')
     .then((res) => {
       localStorage.removeItem('token');
       callback();

@@ -39,7 +39,7 @@ export class RegisterPage extends Component {
         <div className="el-box layout-col-4 layout-position--center">
           <div className="layout-col-3 marg-c marg-t-sm">
             <form onSubmit={this.onSubmit}>
-              <h3 className="text-align-c">Classify</h3>
+              <h3 className="text-align-c">DataGrid</h3>
               <input
                 type="text"
                 name="firstName"

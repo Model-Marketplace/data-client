@@ -17,7 +17,7 @@ export default ({ repo }) => {
         </div>
         <p>{repo.usage}</p>
         <p className="marg-t-xs">{repo.description}</p>
-        <p>{`Updated ${moment(repo.updatedAt).toNow(true)} ago`}</p>
+        <p className="marg-t-xs">{`Updated ${moment(repo.updatedAt).toNow(true)} ago`}</p>
       </div>
     </div>
   );

@@ -69,7 +69,7 @@ export class NavigationBar extends Component {
       <div className="nav-bar layout-flex layout-flex--between layout-flex--center">
         <div className="layout-flex layout-flex--center">
           <Link to="/home" className="link">
-            <h3 className="marg-r-m">Data Project</h3>
+            <h3 className="marg-r-m">DataGrid</h3>
           </Link>
           <input
             ref={this.wrapperRef}
@@ -112,9 +112,9 @@ export class NavigationBar extends Component {
               <p className="marg-t-sm">Your profile</p>
             </Link>
             <p className="marg-t-xs">Your repositories</p>
-            <p className="marg-t-xs">Your notifications</p>
+            <p className="marg-t-xs">Your inbox</p>
             <hr className="marg-t-sm" />
-	    <p className="marg-t-sm">Settings</p>
+	          <p className="marg-t-sm">Settings</p>
             <p
               onClick={() => logout(() => this.props.history.push('/login'))}
               className="marg-t-xs"

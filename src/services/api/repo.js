@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const create_repo = (payload, callback) => {
   axios
-    .post('http://localhost:3000/repos/create', payload, {
+    .post('http://localhost:3000/api/repos/create', payload, {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -18,7 +18,7 @@ const create_repo = (payload, callback) => {
 
 const get_all_repos = (payload, callback) => {
   axios
-    .post('http://localhost:3000/repos', payload, {
+    .post('http://localhost:3000/api/repos', payload, {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -34,7 +34,7 @@ const get_all_repos = (payload, callback) => {
 
 const get_repo = (payload, callback) => {
   axios
-    .get(`http://localhost:3000/repos/${payload}`, {
+    .get(`http://localhost:3000/api/repos/${payload}`, {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -50,7 +50,7 @@ const get_repo = (payload, callback) => {
 
 const update_repo = (id, payload, callback) => {
   axios
-    .put(`http://localhost:3000/repos/${id}`, payload, {
+    .put(`http://localhost:3000/api/repos/${id}`, payload, {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -64,4 +64,27 @@ const update_repo = (id, payload, callback) => {
     });
 };
 
-export { create_repo, get_all_repos, get_repo, update_repo };
+const invite_coowner = (id, payload, callback) => {
+  axios
+    .post(`http://localhost:3000/api/invite/${id}`, payload, {
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+    .then((res) => {
+      console.log(res);
+      callback();
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
+}
+
+export { 
+  create_repo, 
+  get_all_repos, 
+  get_repo, 
+  update_repo, 
+  invite_coowner 
+};

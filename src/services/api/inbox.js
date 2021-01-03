@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const search = (payload, callback) => {
+const get_inbox = (payload, callback) => {
   axios
-    .post('http://localhost:3000/api/search', payload, {
+    .post('http://localhost:3000/api/inbox', payload, {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -12,8 +12,8 @@ const search = (payload, callback) => {
       callback(res);
     })
     .catch((err) => {
-      console.log(err.respoonse);
+      console.log(err.response);
     });
 };
 
-export { search };
+export { get_inbox };

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Toggle from 'react-toggle'
 
 import { update_repo } from '../../services/api/repo';
 
-export default class RepoEdit extends Component {
+export default class RepoSettings extends Component {
   constructor(props) {
     super(props);
 
@@ -45,13 +46,6 @@ export default class RepoEdit extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <hr className="hr" />
-        <h5 className="marg-t-sm">Edit</h5>
-        <p className="marg-t-xs">
-          To contribute data to this repository, you must upload data
-          to the endpoint indicated in the gray box; data must conform 
-          to community guidelines and be in accordance with the 
-          format specified by the repository owners.
-        </p>
         <input
           type="text"
           name="name"
@@ -69,6 +63,38 @@ export default class RepoEdit extends Component {
           className="textarea layout-size--full-width marg-t-sm"
           onChange={(e) => this.onChange(e)}
         />
+        <div className="marg-t-sm">
+            <div className="layout-flex">
+              <Toggle
+                defaultChecked={true}
+                icons={false}
+                onChange={() => true} 
+              />
+              <div className="marg-l-sm">
+                <h5>Upload API</h5>
+                <p>
+                  Toggle to enable or disable users from uploading 
+                  new data to this repository; the restriction will not affect
+                  repository owners
+                </p>
+              </div>
+            </div>
+            <div className="layout-flex marg-t-sm">
+              <Toggle
+                defaultChecked={true}
+                icons={false}
+                onChange={() => true} 
+              />
+              <div className="marg-l-sm">
+                <h5>Predict API</h5>
+                <p>
+                  Toggle to enable or disable users from making
+                  predictions from this repository; the restriction will not 
+                  affect repository owners
+                </p>
+              </div>
+            </div>
+        </div>
         <button className="button-shaded layout-size--full-width marg-t-sm">
           Update Repository
         </button>

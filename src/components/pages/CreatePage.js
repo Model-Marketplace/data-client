@@ -69,9 +69,9 @@ export default class CreatePage extends Component {
               <option value="" disabled selected="selected">
                 Type
               </option>
-              <option value="image">Image</option>
+              {/* <option value="image">Image</option> */}
               <option value="text">Text</option>
-              <option value="image">Custom</option>
+              {/* <option value="image">Custom</option> */}
             </select>
             <textarea
               type="text"
@@ -98,7 +98,7 @@ export default class CreatePage extends Component {
                 className="el-image el-image--s marg-r-sm"
               />
               <div>
-                <h4>Public</h4>
+                <h5>Public</h5>
                 <p>Anyone on the internet can see this repository</p>
               </div>
             </div>

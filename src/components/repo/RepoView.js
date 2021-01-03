@@ -8,7 +8,7 @@ export default ({ repo }) => (
     <p className="marg-t-xs">
       To contribute data to this repository, you must upload data
       to the endpoint indicated in the gray box; data must conform 
-      to community guidelines and be in accordance with the 
+      to the community guidelines and be in accordance with the 
       format specified by the repository owners.
     </p>
     <div className="el-box-grey pad-c-s marg-t-sm">
@@ -16,8 +16,8 @@ export default ({ repo }) => (
         {`POST: localhost:3000/upload/${repo._id}`}
       </span>
     </div>
-    <h5 className="marg-t-sm marg-b-sm">Owners</h5>
-    <div>
+    <h5 className="marg-t-sm">Owners</h5>
+    <div className="marg-t-xs">
       {repo.owners.map((owner) => (
           <Link
             to={`/profile/${owner.username}`}
@@ -31,8 +31,8 @@ export default ({ repo }) => (
           </Link>
       ))}
     </div>
-    <h5 className="marg-t-sm marg-b-sm">Contributors</h5>
-    <div>
+    <h5 className="marg-t-sm">Contributors</h5>
+    <div className="marg-t-xs">
       {repo.contributors.map((contributor) => (
           <Link
             to={`/profile/${contributor.username}`}

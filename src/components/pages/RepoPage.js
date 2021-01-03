@@ -3,7 +3,9 @@ import NavigationBar from '../menus/NavigationBar';
 
 import Repo from '../blocks/Repo';
 import RepoView from '../repo/RepoView';
-import RepoEdit from '../repo/RepoEdit';
+import RepoData from '../repo/RepoData';
+import RepoSettings from '../repo/RepoSettings';
+import RepoSecurity from '../repo/RepoSecurity';
 
 import { get_repo } from '../../services/api/repo';
 
@@ -23,7 +25,7 @@ export default class RepoPage extends Component {
         { name: 'settings', value: 'Settings' },
         { name: 'security', value: 'Security' }
       ],
-      selected: 'view'
+      selected: 'settings'
     };
   }
 
@@ -67,8 +69,12 @@ export default class RepoPage extends Component {
     switch (selected) {
       case 'view':
         return <RepoView repo={repo} />
+      case 'data':
+        return <RepoData repo={repo} />
       case 'settings':
-        return <RepoEdit repo={repo} handleUpdate={this.handleUpdate} />
+        return <RepoSettings repo={repo} handleUpdate={this.handleUpdate} />
+      case 'security':
+        return <RepoSecurity repo={repo} handleUpdate={this.handleUpdate} />
       default:
         return <RepoView repo={repo} />
     }
@@ -77,21 +83,25 @@ export default class RepoPage extends Component {
   render() {
     const { repo, is_owner, options, selected } = this.state;
     return (
-      <div>
+      <div className="page-vh">
         <NavigationBar />
         <section>
           {is_owner && (
-            <div className="layout-col-6 marg-c layout-flex el-box pad-c-s marg-t-sm">
-            {options.map((option) => (
-                <div
-                  key={option.name}
-                  onClick={() => this.setState({ selected: option.name })}
-                  className="layout-flex layout-flex--between layout-flex--center marg-r-sm sortfilter-group"
-                  style={this.handleSelected(option.name)}
-                >
-                  <h5>{option.value}</h5>
-                </div>
-              ))}
+            <div className="layout-col-6 marg-c el-box pad-c-s marg-t-sm">
+              <h3 className="marg-b-sm">{repo.name}</h3>
+              <hr className="hr" />
+              <div className="layout-flex marg-t-sm">
+                {options.map((option) => (
+                    <div
+                      key={option.name}
+                      onClick={() => this.setState({ selected: option.name })}
+                      className="layout-flex layout-flex--between layout-flex--center marg-r-sm sortfilter-group"
+                      style={this.handleSelected(option.name)}
+                    >
+                      <h5>{option.value}</h5>
+                    </div>
+                  ))}
+              </div>
             </div>
           )}
           

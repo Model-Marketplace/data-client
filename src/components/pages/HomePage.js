@@ -46,8 +46,6 @@ export class HomePage extends Component {
 
   loadItems(page) {
     const { repos } = this.state;
-    console.log('List of repos: ');
-    console.log(repos)
     if (repos.length > 0) {
       get_all_repos({ skip: repos.length }, (res) => {
         if (res.data.repos.length == 0) {
