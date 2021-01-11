@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import NavigationBar from '../menus/NavigationBar';
+import CreateBasic from '../create/CreateBasic';
+import CreateLabel from '../create/CreateLabel';
 
 import { create_repo } from '../../services/api/repo';
 
-export default class CreatePage extends Component {
+export class CreatePage extends Component {
   constructor(props) {
     super(props);
 
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.handleNext = this.handleNext.bind(this);
 
     this.state = {
       name: '',
       description: '',
-      image: null,
+      labels: '',
+      page: 1
     };
   }
 
@@ -27,105 +31,74 @@ export default class CreatePage extends Component {
     });
   }
 
-  onSubmit(e) {
-    e.preventDefault();
-    create_repo(this.state, () => {
-      this.setState({ name: '', description: '', image: null }, () =>
-        this.props.history.push('/home')
-      );
-    });
+  handleNext(direction) {
+    const { page } = this.state;
+    switch (direction) {
+      case 'backward':
+        this.setState({ ...this.state, page: page - 1 });
+        break;
+      case 'forward':
+        if (page == 2) {
+          create_repo(this.state, (res) => {
+            const { repo } = res.data;
+            this.setState({ name: '', description: '' }, () => {
+              this.props.history.push(`/repo/${repo._id}`)
+            });
+          });
+        } else {
+          this.setState({ ...this.state, page: page + 1 });
+        }
+        break;
+    }
   }
 
   render() {
-    const { name, description, image, url } = this.state;
+    const { name, description, labels, page } = this.state;
     return (
       <div className="page-vh">
         <NavigationBar />
         <section className="marg-t-sm marg-b-sm">
-          <form
-            onSubmit={this.onSubmit}
-            className="layout-col-6 marg-c el-box pad-c-s"
-          >
+          <div className="layout-col-6 marg-c el-box pad-c-s">
             <h4>Create Repository</h4>
             <p className="marg-t-xs">
               A repository contains all relevant data entries, including the
               revision history.
             </p>
             <hr className="marg-t-sm" />
-            <h4 className="marg-t-sm">Background</h4>
-            <p className="marg-t-xs">
-              Enter basic information to describe the repository contents.
-            </p>
-            <input
-              type="text"
-              name="name"
-              value={name}
-              placeholder="Name"
-              autoComplete="off"
-              className="input-text marg-t-sm"
-              onChange={(e) => this.onChange(e)}
-            />
-            <select className="select marg-t-xs">
-              <option value="" disabled selected="selected">
-                Type
-              </option>
-              {/* <option value="image">Image</option> */}
-              <option value="text">Text</option>
-              {/* <option value="image">Custom</option> */}
-            </select>
-            <textarea
-              type="text"
-              name="description"
-              value={description}
-              placeholder="Description"
-              className="textarea layout-size--full-width marg-t-sm"
-              onChange={(e) => this.onChange(e)}
-            />
-            <hr className="marg-t-sm" />
-            <h4 className="marg-t-sm">Accessibility</h4>
-            <p className="marg-t-xs">
-              Define who gets to access this repository.
-            </p>
-            <div className="layout-flex layout-flex--center marg-t-sm">
-              <input
-                type="radio"
-                name="public"
-                value="public"
-                className="marg-r-sm"
-              ></input>
-              <img
-                src="https://www.redditstatic.com/avatars/avatar_default_07_0079D3.png"
-                className="el-image el-image--s marg-r-sm"
+            {(page == 1) && (
+              <CreateBasic name={name}
+                description={description}
+                onChange={this.onChange}
               />
-              <div>
-                <h5>Public</h5>
-                <p>Anyone on the internet can see this repository</p>
-              </div>
-            </div>
-            <div className="layout-flex layout-flex--center marg-t-sm">
-              <input
-                type="radio"
-                name="public"
-                value="private"
-                className="marg-r-sm"
-              ></input>
-              <img
-                src="https://www.redditstatic.com/avatars/avatar_default_14_7E53C1.png"
-                className="el-image el-image--s marg-r-sm"
+            )}
+            {(page == 2) && (
+              <CreateLabel 
+                labels={labels}
+                onChange={this.onChange}
               />
-              <div>
-                <h5>Private</h5>
-                <p>You choose who can see and commit to this repository</p>
-              </div>
+            )}
+            <hr className="hr" />
+            <div className="marg-t-sm">
+              {(page > 1) && (
+                <button 
+                  className="button marg-r-xs"
+                  onClick={() => this.handleNext('backward')}
+                >
+                  Back
+                </button>
+              )}
+              <button 
+                className="button-shaded"
+                onClick={() => this.handleNext('forward')}
+              >
+                {(page == 1) ? 'Next' : 'Finish'}
+              </button>
             </div>
-            <hr className="marg-t-sm" />
-            <button className="button-shaded marg-t-sm">
-              Create Repository
-            </button>
-          </form>
+          </div>
         </section>
-        {/* <Footer /> */}
       </div>
     );
   }
 }
+
+export default withRouter(CreatePage);

@@ -4,18 +4,35 @@ import { Link } from 'react-router-dom';
 export default ({ repo }) => (
   <div>
     <hr className="hr" />
-    <h5 className="marg-t-sm">API Endpoint — Upload Data</h5>
+    <h5 className="marg-t-sm">API Endpoint — Make Prediction</h5>
+    <p className="marg-t-xs">
+      To make a prediction using the repository model, you must use the 
+      endpoint indicated in the gray box; the response will follow the format 
+      specified by the repository owners.
+    </p>
+    <div className="el-box-grey pad-c-s marg-t-sm marg-b-sm">
+      <span className="span-code">
+        {`POST: localhost:3000/predict/${repo._id}`}
+      </span>
+    </div>
+    <p className="marg-t-xs marg-b-sm">
+      To make a prediction using the repository model, you must use the 
+      endpoint indicated in the gray box; the response will follow the format 
+      specified by the repository owners.
+    </p>
+    <hr className="hr" />
+    {/* <h5 className="marg-t-sm">API Endpoint — Upload Data</h5>
     <p className="marg-t-xs">
       To contribute data to this repository, you must upload data
       to the endpoint indicated in the gray box; data must conform 
       to the community guidelines and be in accordance with the 
       format specified by the repository owners.
-    </p>
-    <div className="el-box-grey pad-c-s marg-t-sm">
+    </p> */}
+    {/* <div className="el-box-grey pad-c-s marg-t-sm">
       <span className="span-code">
         {`POST: localhost:3000/upload/${repo._id}`}
       </span>
-    </div>
+    </div> */}
     <h5 className="marg-t-sm">Owners</h5>
     <div className="marg-t-xs">
       {repo.owners.map((owner) => (
@@ -31,6 +48,7 @@ export default ({ repo }) => (
           </Link>
       ))}
     </div>
+
     <h5 className="marg-t-sm">Contributors</h5>
     <div className="marg-t-xs">
       {repo.contributors.map((contributor) => (

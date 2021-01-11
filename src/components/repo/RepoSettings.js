@@ -64,7 +64,7 @@ export default class RepoSettings extends Component {
           onChange={(e) => this.onChange(e)}
         />
         <div className="marg-t-sm">
-            <div className="layout-flex">
+            {/* <div className="layout-flex">
               <Toggle
                 defaultChecked={true}
                 icons={false}
@@ -78,7 +78,7 @@ export default class RepoSettings extends Component {
                   repository owners
                 </p>
               </div>
-            </div>
+            </div> */}
             <div className="layout-flex marg-t-sm">
               <Toggle
                 defaultChecked={true}
@@ -90,7 +90,22 @@ export default class RepoSettings extends Component {
                 <p>
                   Toggle to enable or disable users from making
                   predictions from this repository; the restriction will not 
-                  affect repository owners
+                  affect repository owners.
+                </p>
+              </div>
+            </div>
+            <div className="layout-flex marg-t-sm">
+              <Toggle
+                defaultChecked={true}
+                icons={false}
+                onChange={() => true} 
+              />
+              <div className="marg-l-sm">
+                <h5>Monetization</h5>
+                <p>
+                  Toggle to enable or disable monetization for this repository;
+                  only users with valid payment/bank information will receive
+                  compensation according to the platform guidelines.
                 </p>
               </div>
             </div>

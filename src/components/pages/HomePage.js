@@ -78,7 +78,7 @@ export class HomePage extends Component {
     return (
       <div className="page">
         <NavigationBar />
-        <BarLoader width={width} height={2} loading={loading} />
+        <BarLoader width={width} height={2} loading={loading} color="#2980b9" />
         <section>
           {repos.length > 0 && (
             <div className="layout-col-6 marg-c">

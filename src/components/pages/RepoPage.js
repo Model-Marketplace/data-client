@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import NavigationBar from '../menus/NavigationBar';
-
 import Repo from '../blocks/Repo';
 import RepoView from '../repo/RepoView';
-import RepoData from '../repo/RepoData';
 import RepoSettings from '../repo/RepoSettings';
 import RepoSecurity from '../repo/RepoSecurity';
 
@@ -21,11 +19,10 @@ export default class RepoPage extends Component {
       is_owner: false,
       options: [
         { name: 'view', value: 'Overview' },
-        { name: 'data', value: 'Data' },
         { name: 'settings', value: 'Settings' },
         { name: 'security', value: 'Security' }
       ],
-      selected: 'settings'
+      selected: 'view'
     };
   }
 
@@ -69,8 +66,6 @@ export default class RepoPage extends Component {
     switch (selected) {
       case 'view':
         return <RepoView repo={repo} />
-      case 'data':
-        return <RepoData repo={repo} />
       case 'settings':
         return <RepoSettings repo={repo} handleUpdate={this.handleUpdate} />
       case 'security':
